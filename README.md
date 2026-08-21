@@ -1,23 +1,20 @@
 # lucide-rails
 
-firedev fork of [heyvito/lucide-rails](https://github.com/heyvito/lucide-rails).
-The helper is unchanged; the bundled Lucide snapshot is refreshed to 1.33.0
-(`user-round-key` and other icons missing from 0.7.4).
+[heyvito/lucide-rails](https://github.com/heyvito/lucide-rails) with a current
+[Lucide](https://lucide.dev) icon snapshot.
 
-`lucide-rails` provides a view helper for using [Lucide icons](https://lucide.dev)
-on Rails applications
+`lucide_icon` is the same helper. This fork vendors Lucide **1.33.0** (gem
+**0.7.6**) so icons added after the 0.7.4 snapshot — including `user-round-key` —
+resolve. It also uses `File.binread` for `stripped.bin.gz` so the snapshot
+loads on Windows ([upstream #39](https://github.com/heyvito/lucide-rails/pull/39)).
+
+Icon refresh is offered upstream as
+[heyvito/lucide-rails#43](https://github.com/heyvito/lucide-rails/pull/43).
 
 ## Installation
 
-Install the gem and add to the application's Gemfile by executing:
-```
-    $ bundle add lucide-rails
-```
-
-If bundler is not being used to manage dependencies, install the gem by executing:
-
-```
-    $ gem install lucide-rails
+```ruby
+gem "lucide-rails", github: "firedev/lucide-rails", tag: "v0.7.6"
 ```
 
 ## Usage
@@ -70,21 +67,22 @@ After checking out the repo, run `bin/setup` to install dependencies. Then, run
 `bundle exec rspec` to run the tests. You can also run `bundle exec bin/console`
 for an interactive prompt that will allow you to experiment.
 
-To install this gem onto your local machine, run `bundle exec rake install`.
-To release a new version, update the version number in `version.rb`, and then
-run `bundle exec rake release`, which will create a git tag for the version,
-push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+Tag a new version after an icon refresh: bump `lib/lucide-rails/version.rb`,
+commit, `git tag vX.Y.Z`, push the tag. Houseviser pins that tag in the Gemfile.
 
 ### Updating Bundled Icons
 
-To sync the library with the official icon repository, and regenerate all files
-from `icons/`, use `bundle exec bin/fetch-icons`.
+```
+bundle exec bin/fetch-icons
+```
+
+That clones the latest Lucide release, regenerates `icons/`, and updates
+`LUCIDE_VERSION`. Then bump the gem version and tag.
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/heyvito/lucide-rails.
-This project is intended to be a safe, welcoming space for collaboration, and
-contributors are expected to adhere to the [code of conduct](https://github.com/heyvito/lucide-rails/blob/master/CODE_OF_CONDUCT.md).
+This fork lives at https://github.com/firedev/lucide-rails. Upstream is
+https://github.com/heyvito/lucide-rails.
 
 ## Code of Conduct
 
