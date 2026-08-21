@@ -5,7 +5,7 @@ Use `File.binread` for `stripped.bin.gz` so Gzip does not fail on Windows
 
 ## [0.7.5]
 
-firedev fork: refresh the bundled icon snapshot to Lucide 1.33.0.
+Refresh the bundled icon snapshot to Lucide 1.33.0.
 
 ### Added
  - `ad`
