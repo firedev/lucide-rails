@@ -1,3 +1,8 @@
+## [0.7.6]
+
+Use `File.binread` for `stripped.bin.gz` so Gzip does not fail on Windows
+(heyvito/lucide-rails#39).
+
 ## [0.7.5]
 
 firedev fork: refresh the bundled icon snapshot to Lucide 1.33.0.
